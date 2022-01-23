@@ -14,7 +14,7 @@ inicio
          Dif <- (Dif*(-1))
       FimSe
       Escreval ("---------------------------")
-      Escreval ("DIFEREN�A: ", Dif)
+      Escreval ("DIFERENÇA: ", Dif)
       Escolha Dif
               Caso 0
                    Escreval ("STATUS: EMPATE")
@@ -33,5 +33,5 @@ inicio
                 EscrevaL("BANGU")
            FimSe
       FimSe
-      Escreval ("---------------------------")
+      Escreval ("---------------------------") //o programa tem 3 linhas a menos quando uso o EscolhaCaso... Talvez assim seja um pouco mais prático do que com o Se..FimSe
 fimalgoritmo
