@@ -1,4 +1,4 @@
-algoritmo "semnome"
+algoritmo "Jogo da Velha"
 var
 
    matriz : vetor[1..3, 1..3]de inteiro
@@ -10,14 +10,14 @@ Procedimento RepX()
 Inicio
     Para L <- 1 ate 3 faca
        EscrevaL("+---+---+---+")
-       Para C <- 1 ate 3 faca //vai escrever o jogo com as formatações, tudo bonitinho
-          Se (matriz[L, C] = 11) entao //se o valor atribuido nessa posição for 11, vai ser exibido "X"
+       Para C <- 1 ate 3 faca //vai escrever o jogo com as formataÃ§Ãµes, tudo bonitinho
+          Se (matriz[L, C] = 11) entao //se o valor atribuido nessa posiÃ§Ã£o for 11, vai ser exibido "X"
              Escreva("| X ")
           senao
              Se (matriz[L, C] = 22) entao //se for 22, vai ser exibido "O"
                 Escreva("| O ")
              senao
-                Escreva("|", matriz[L, C], " ") //se não for nenhum dos dois, vai ser exibido o valor que está na posição
+                Escreva("|", matriz[L, C], " ") //se nÃ£o for nenhum dos dois, vai ser exibido o valor que estÃ¡ na posiÃ§Ã£o
              FimSe
           FimSe
        FimPara
@@ -29,21 +29,21 @@ FimProcedimento
 
 Procedimento VerifResp()
 Inicio
-   Se (Resp < 1) ou (Resp > 9) entao //isso é pra garantir que o valor colocado é válido e não dar erro no programa
+   Se (Resp < 1) ou (Resp > 9) entao //isso Ã© pra garantir que o valor colocado Ã© vÃ¡lido e nÃ£o dar erro no programa
       Repita
-          EscrevaL("Você não digitou um valor válido! Tente novamente:")
+          EscrevaL("VocÃª nÃ£o digitou um valor vÃ¡lido! Tente novamente:")
           EscrevaL("(lembre-se que deve colocar um valor entre 1 e 9)")
           Leia(Resp)
       Ate (Resp > 0) e (Resp <= 9)
    FimSe
-   Se (resps[Resp] <> 0) entao //resps é o que vamos usar pra guardar os lugares escolhidos
-     resps[Resp] <- 0 //a posição já escolhida vai ser marcada com um 0, o que impede de escolherem o mesmo lugar
+   Se (resps[Resp] <> 0) entao //resps Ã© o que vamos usar pra guardar os lugares escolhidos
+     resps[Resp] <- 0 //a posiÃ§Ã£o jÃ¡ escolhida vai ser marcada com um 0, o que impede de escolherem o mesmo lugar
    senao
      Repita
-        Escreva("Você escolheu uma posição já escolhida! Tente de novo: ")
-        Leia(Resp) //esse sistema já avisa se o valor é válido ou não antes mesmo de colocá-lo na matriz
+        Escreva("VocÃª escolheu uma posiÃ§Ã£o jÃ¡ escolhida! Tente de novo: ")
+        Leia(Resp) //esse sistema jÃ¡ avisa se o valor Ã© vÃ¡lido ou nÃ£o antes mesmo de colocÃ¡-lo na matriz
      Ate resps[Resp] <> 0
-     resps[Resp] <- 0 //quando um valor válido for escolhido, resps vai receber o valor de 0
+     resps[Resp] <- 0 //quando um valor vÃ¡lido for escolhido, resps vai receber o valor de 0
    FimSe
 FimProcedimento
 
@@ -72,18 +72,18 @@ Inicio
                          senao
                             Se (matriz[1, 3] = matriz[2, 3]) e (matriz[2, 3] = matriz[3, 3]) entao //vertical
                                vitoria <- vitoria + 1
-                            FimSe //se três valores seguidos na ordem diagonal, horizontal ou vertical forem iguais, a variável
+                            FimSe //se trÃªs valores seguidos na ordem diagonal, horizontal ou vertical forem iguais, a variÃ¡vel
                          FimSe    //"vitoria" vai receber o valor de 1, e com isso, no final, vai poder ser determinado
-                      FimSe       //a hora que o algorítmo deve parar de repetir e assim declarar um vencedor
+                      FimSe       //a hora que o algorÃ­tmo deve parar de repetir e assim declarar um vencedor
                    FimSe
                 FimSe
              FimSe
           FimSe
-       FimSe //no caso de vitória, o último a jogar sempre vai ser o ganhador, então não há a necessidade de analisar o que está na matriz para saber quem ganhou
+       FimSe //no caso de vitÃ³ria, o Ãºltimo a jogar sempre vai ser o ganhador, entÃ£o nÃ£o hÃ¡ a necessidade de analisar o que estÃ¡ na matriz para saber quem ganhou
 FimProcedimento
 
 inicio
-    //Variáveis que vão servir pra várias coisas mais cedo ou mais tarde
+    //VariÃ¡veis que vÃ£o servir pra vÃ¡rias coisas mais cedo ou mais tarde
     vitoria <- 0
     X <- -1
     empate <- 1
@@ -100,7 +100,7 @@ inicio
        FimPara
     FimPara
 
-    Para L <- 1 ate 3 faca //isso é pra escrever a matriz na tela, junto com a formatação bonitinha do jogo
+    Para L <- 1 ate 3 faca //isso Ã© pra escrever a matriz na tela, junto com a formataÃ§Ã£o bonitinha do jogo
        EscrevaL("+---+---+---+")
        Para C <- 1 ate 3 faca
           Escreva("|", matriz[L, C], " ")
@@ -110,24 +110,24 @@ inicio
     FimPara
     EscrevaL("+---+---+---+")
     
-    //a partir daqui o algoritmo do jogo começa a funcionar de verdade
+    //a partir daqui o algoritmo do jogo comeÃ§a a funcionar de verdade
     
-    Enquanto (Vitoria = 0) e (empate <= 9) faca //Vai repetir até alguém ganhar ou empatar o jogo (que é depois de nove rodadas, por isso o <= 9)
-       X <- X*-1 //o valor de Y vai variar entre 3 e 1, então toda vez que o algoritmo repetir, vai ser atribuido um desses valores e depois o outro
+    Enquanto (Vitoria = 0) e (empate <= 9) faca //Vai repetir atÃ© alguÃ©m ganhar ou empatar o jogo (que Ã© depois de nove rodadas, por isso o <= 9)
+       X <- X*-1 //o valor de Y vai variar entre 3 e 1, entÃ£o toda vez que o algoritmo repetir, vai ser atribuido um desses valores e depois o outro
        Y <- X + 2
        Se (Y = 3) entao//isso serve pra alternar entre "X" e "O" na hora de jogar
-          XO <- "X" //na primeira vez que a conta roda, Y recebe o valor de 3, e como X é o primeiro a ser jogado, 3 vai ser igual a X
+          XO <- "X" //na primeira vez que a conta roda, Y recebe o valor de 3, e como X Ã© o primeiro a ser jogado, 3 vai ser igual a X
        senao
-          Xo <- "O" //na segunda vez, Y vai receber o valor de 1, então O vai ser igual a 1
+          Xo <- "O" //na segunda vez, Y vai receber o valor de 1, entÃ£o O vai ser igual a 1
        FimSe
-       EscrevaL("Vai jogar [", XO,"] em qual posição? ")
+       EscrevaL("Vai jogar [", XO,"] em qual posiÃ§Ã£o? ")
        Leia(Resp)
-       VerifResp()//vai ler a resposta, e antes mesmo de colocar no programa vai verificar se esse valor já foi pego ou não
-       Se (XO = "X") entao //com o auxílio da variável "XO", a gente vai saber se foi escolhido um "X" ou um "O" para ser colocado no lugar
+       VerifResp()//vai ler a resposta, e antes mesmo de colocar no programa vai verificar se esse valor jÃ¡ foi pego ou nÃ£o
+       Se (XO = "X") entao //com o auxÃ­lio da variÃ¡vel "XO", a gente vai saber se foi escolhido um "X" ou um "O" para ser colocado no lugar
           Para L <- 1 ate 3 faca
              Para C <- 1 ate 3 faca
                 Se (matriz[L, C] = Resp) entao
-                   matriz[L, C] <- 11 //se for X, na matriz, o valor atribuido vai ser 11, mas esse valor não será exibido
+                   matriz[L, C] <- 11 //se for X, na matriz, o valor atribuido vai ser 11, mas esse valor nÃ£o serÃ¡ exibido
                 FimSe
              FimPara
           FimPara
@@ -135,23 +135,23 @@ inicio
           Para L <- 1 ate 3 faca
              Para C <- 1 ate 3 faca
                 Se (matriz[L, C] = Resp) entao
-                   matriz[L, C] <- 22 //se for O, o valor vai ser 22 e, do mesmo modo, também não será exibido
+                   matriz[L, C] <- 22 //se for O, o valor vai ser 22 e, do mesmo modo, tambÃ©m nÃ£o serÃ¡ exibido
                 FimSe
              FimPara
           FimPara
        FimSe
-       VerifJogo() //esse procedimento verifica se, com as escolhas de até agora, o jogo já foi ganho por alguém
+       VerifJogo() //esse procedimento verifica se, com as escolhas de atÃ© agora, o jogo jÃ¡ foi ganho por alguÃ©m
        LimpaTela
        RepX() //finalmente, vai ser exibido o estado do jogo atualmente, os lugares escolhidos e por quem foram escolhidos
-       empate <- empate + 1 //isso vai determinar a hora que o algorítmo deve parar se for situação de empate
+       empate <- empate + 1 //isso vai determinar a hora que o algorÃ­tmo deve parar se for situaÃ§Ã£o de empate
     FimEnquanto
-    Se (Vitoria = 1) entao //a vitória deve ser verificada primeiro, porque caso alguém ganhe na última rodada, o jogo mesmo assim declararia como empate
+    Se (Vitoria = 1) entao //a vitÃ³ria deve ser verificada primeiro, porque caso alguÃ©m ganhe na Ãºltima rodada, o jogo mesmo assim declararia como empate
        EscrevaL("[", XO, "] venceu!")
-    senao //se, depois de passada pela análide do procedimento, não foi constatado nenhum vencedor (ou seja, vitoria continua sendo igual a 0), é empate
+    senao //se, depois de passada pela anÃ¡lide do procedimento, nÃ£o foi constatado nenhum vencedor (ou seja, vitoria continua sendo igual a 0), Ã© empate
        EscrevaL("Empate")
     FimSe // :DDD
     
-    //eventualmente gostaria de reescrever esse algorítmo, porque eu sinto que poderia fazê-lo com menos linhas e de forma mais prática
-    //mas agora, essa foi a melhor forma que achei de criar um algoritmo que permite você jogar o jogo da velha
-    //quero tentar também criar uma forma de fazer o jogador ter a opção de jogar contra o computador
+    //eventualmente gostaria de reescrever esse algorÃ­tmo, porque eu sinto que poderia fazÃª-lo com menos linhas e de forma mais prÃ¡tica
+    //mas agora, essa foi a melhor forma que achei de criar um algoritmo que permite vocÃª jogar o jogo da velha
+    //quero tentar tambÃ©m criar uma forma de fazer o jogador ter a opÃ§Ã£o de jogar contra o computador
 fimalgoritmo
