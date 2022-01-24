@@ -1,7 +1,7 @@
-algoritmo "semnome"
+algoritmo "semnome" //eu fiz dois algoritmos diferentes pro mesmo problema, mas com algumas alteraÃ§Ãµes no funcionamento
 var
    N, C : Inteiro
-   Rn, Rc, R: Caractere
+   Rn, Rc, R: Caractere //aqui eu usei o EscolhaCaso, alÃ©m de ter usado as variÃ¡veis Rn e Rc
 inicio
 Repita
       EscrevaL ("Vamos jogar pedra, papel e tesoura!")
@@ -33,26 +33,26 @@ Repita
       senao
            Se (N = 0) e (C = 1) entao
               EscrevaL(Rn, " x ", Rc)
-              EscrevaL("Você perdeu!")
+              EscrevaL("Vocï¿½ perdeu!")
            senao
                 Se (N = 0) e (C = 2) entao
                    EscrevaL(Rn, " x ", Rc)
-                   EscrevaL("Você ganhou!")
+                   EscrevaL("Vocï¿½ ganhou!")
                 senao
                      Se (N = 1) e (C = 0) entao
                         EscrevaL(Rn, " x ", Rc)
-                        EscrevaL("Você ganhou!")
+                        EscrevaL("Vocï¿½ ganhou!")
                      senao
                           Se (N = 1) e (C = 2) entao
                              EscrevaL(Rn, " x ", Rc)
-                             EscrevaL("Você perdeu!")
+                             EscrevaL("Vocï¿½ perdeu!")
                           senao
                                Se (N = 2) e (C = 0) entao
                                   EscrevaL(Rn, " x ", Rc)
-                                  EscrevaL("Você perdeu!")
+                                  EscrevaL("Vocï¿½ perdeu!")
                                senao
                                     EscrevaL(Rn, " x ", Rc)
-                                    EscrevaL("Você ganhou!")
+                                    EscrevaL("Vocï¿½ ganhou!")
                                FimSe
                           FimSe
                      FimSe
@@ -62,5 +62,5 @@ Repita
       Escreva("Quer continuar? [S/N] ")
       Leia(R)
       LimpaTela
-Ate (R = "N")
-fimalgoritmo
+Ate (R = "N") //eu acho que nesse caso, ficou um pouco mais "simples" pq eu sÃ³ escrevia as variÃ¡veis, nÃ£o tinha que escrever resposta por resposta, sÃ³ o nome da variÃ¡vel
+fimalgoritmo //mas o algoritmo ficou um pouco maior, entÃ£o acho que pra esse caso o primeiro algoritmo foi um pouco mais eficiente
